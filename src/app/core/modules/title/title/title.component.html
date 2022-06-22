@@ -1,0 +1,9 @@
+<div class="hstack gap-1 align-items-center px-3 py-2" [class.sticky]="sticky" style="min-height: 54px">
+    <ng-content select="app-title-back-button"></ng-content>
+    <div>
+        <h5 *ngIf="!titleDirective" class="fw-bold mb-0">{{title}}</h5>
+        <ng-container *ngTemplateOutlet="titleDirective?.templateRef || null; context: {$implicit: title}">
+        </ng-container>
+    </div>
+    <ng-content select="app-title-button"></ng-content>
+</div>

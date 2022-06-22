@@ -1,0 +1,57 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+
+$custom-border-radius: 10px;
+$input-border-radius: $custom-border-radius;
+$input-border-radius-sm: $custom-border-radius;
+$input-border-radius-lg: $custom-border-radius;
+$btn-border-radius: $custom-border-radius;
+$btn-border-radius-sm: $custom-border-radius;
+$btn-border-radius-lg: $custom-border-radius;
+$form-select-border-radius: $custom-border-radius;
+$card-border-radius: $custom-border-radius;
+$dropdown-border-radius: $custom-border-radius;
+$list-group-border-radius: $custom-border-radius;
+$nav-pills-border-radius: $custom-border-radius;
+$alert-border-radius: $custom-border-radius;
+
+$custom-colors: (
+  "gray-100": $gray-100,
+  "gray-200": $gray-200,
+  "gray-300": $gray-300,
+  "gray-400": $gray-400,
+  "gray-500": $gray-500
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+$utilities-text-colors: map-merge($utilities-text-colors, $custom-colors);
+$utilities-bg-colors: map-merge($utilities-bg-colors, $custom-colors);
+
+@import "node_modules/bootstrap/scss/utilities";
+
+$utilities: map-merge($utilities,
+    ("outline": (property: outline, values: (0: none)),
+      "shadow": map-merge(map-get($utilities, "shadow"),
+        (values: map-merge(map-get(map-get($utilities, "shadow"), "values"),
+            (custom: 0 0.5rem 1rem rgba(0, 0, 0, 0.1),
+              dropdown: 0 5px 20px rgba(0, 0, 0, 0.2)),
+          ),
+        ),
+      ),
+      "h": map-merge(map-get($utilities, "height"),
+        (values: map-merge(map-get(map-get($utilities, "height"), "values"),
+            (0: 0),
+          ),
+        ),
+      ),
+    ));
+
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.card {
+  overflow: hidden;
+
+  .card-header {
+    background-color: white;
+  }
+}

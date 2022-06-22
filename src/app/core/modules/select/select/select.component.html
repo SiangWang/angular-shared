@@ -1,0 +1,22 @@
+<button type="button" class="btn hstack gap-2" [ngClass]="cssClass ?? ''" (click)="optionsOpen = !optionsOpen"
+    cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+    {{text}}
+    <i class="fa-solid fa-angle-down text-secondary"></i>
+</button>
+<ng-template cdkConnectedOverlay [cdkConnectedOverlayOrigin]="trigger" [cdkConnectedOverlayOpen]="optionsOpen"
+    [cdkConnectedOverlayMinWidth]="240" (overlayOutsideClick)="optionsOpen = false">
+    <div class="card w-100 border-0 shadow-dropdown mh">
+        <div class="list-group list-group-flush overflow-auto">
+            <button *ngFor="let d of data" type="button"
+                class="list-group-item list-group-item-action hstack align-items-center gap-2"
+                (click)="select(valueField ? d[valueField] : d)">
+                <div style="width: 14px">
+                    <i *ngIf="(valueField ? d[valueField] : d) === selectedValue" class="fa-solid fa-check"></i>
+                </div>
+                <ng-container *ngIf="!templateDir">{{d[textField!] ?? d}}</ng-container>
+                <ng-container *ngTemplateOutlet="templateDir?.templateRef || null; context: {$implicit: d}">
+                </ng-container>
+            </button>
+        </div>
+    </div>
+</ng-template>

@@ -1,0 +1,14 @@
+html,
+body {
+    height: 100%;
+}
+
+mat-dialog-container {
+    border-radius: 10px !important;
+}
+
+mat-sidenav-content {
+    >*:not(router-outlet) {
+        display: block;
+    }
+}

@@ -1,0 +1,19 @@
+a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    text-decoration: none;
+
+    &:hover {
+        background-color: rgba(15, 20, 25, 0.1);
+    }
+
+    &.active {
+        color: white;
+        background-color: var(--bs-primary);
+    }
+}

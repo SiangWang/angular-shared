@@ -1,0 +1,22 @@
+<div class="container-fluid px-0 h-100">
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" opened disableClose [class.closed]="mediaQueryList?.matches">
+            <div class="vstack gap-1 h-100 py-2 px-3">
+                <a routerLink="" class="nav-list-item align-self-start">
+                    <div class="nav-list-item-link">
+                        <img src="favicon.ico" height="28" alt="">
+                    </div>
+                </a>
+                <a routerLink="home" routerLinkActive="active" #rla="routerLinkActive" class="nav-list-item">
+                    <div class="nav-list-item-link">
+                        <mat-icon [fontIcon]="rla.isActive ? '' : 'material-icons-outlined'">home</mat-icon>
+                        <ng-container *ngIf="!mediaQueryList?.matches">首頁</ng-container>
+                    </div>
+                </a>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

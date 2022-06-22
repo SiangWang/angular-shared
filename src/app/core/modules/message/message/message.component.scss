@@ -1,0 +1,20 @@
+.message {
+    animation-name: show;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    transition: 0.5s;
+
+    &.closing {
+        opacity: 0;
+    }
+}
+
+@keyframes show {
+    from {
+        height: 0;
+    }
+
+    to {
+        height: 56px;
+    }
+}
